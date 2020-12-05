@@ -1,27 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import RandomCatThings from './RandomCatThings';
+import SavedCatThings from './SavedCatThings';
+import Header from './Header'
+import {Route, Link} from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Elkezdtem a projektet!!!!! :-)
-        Még commit szöveg is van
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Route exact path="/" component={RandomCatThings}></Route>
+      <Route path="/saved" component={SavedCatThings}></Route>
     </div>
   );
 }
-
 export default App;
