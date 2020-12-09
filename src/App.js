@@ -7,8 +7,14 @@ import Header from './Header'
 import AuthorNfo from "./Author"
 import CatPurr from "./CatPurr"
 import {Route, Redirect} from 'react-router-dom'
-
+import {useEffect} from 'react'
+//<TitleSetter/>
 function App() {
+
+  useEffect(() => {
+    document.title = "Ultimate Cat Site"
+    }, []);
+
   return (
     //global állapot => username
     <div className="App">
