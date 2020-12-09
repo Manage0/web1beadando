@@ -7,6 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #3EA77B;
 }
+ a:link {
+  color: red;
+}
+
+a:visited {
+  color:#A5A6D5;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+  color: blue;
+} 
 
 h1 {
   color: #84DFA5;

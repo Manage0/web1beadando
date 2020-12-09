@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom'
 import { css } from "styled-components/macro"
 
 const Header= ()=>{
+
     return(
     <div
     css={css`
@@ -15,8 +16,9 @@ const Header= ()=>{
       `}
     >
         <h1>Menu</h1>
-        <Link to='/'><h2>Cat facts</h2></Link>    
-        <Link to='/saved'><h2>Saved cat facts</h2></Link>
+        <Link to='/catfacts' style={{ textDecoration: 'none'} }><h2>Cat facts</h2></Link>    
+        <Link to='/saved' style={{ textDecoration: 'none' }}><h2>Saved cat facts</h2></Link>
+        <Link to='/catpic' style={{ textDecoration: 'none' }}><h2>Cat pictures</h2></Link>
     </div>
     )
 }
