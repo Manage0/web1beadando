@@ -16,23 +16,43 @@ const NameSetup=(name)=>{
 const [inputText, setInputText]= useState();
 
     return (
-        <div
-        css={css`
+        <div>
+            <div css={css`
         width: 100%;
         background-color: lightblue;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
         align-items: center;
+        justify-content: center;
         margin-top: 0px;
-        height: 70px;
+        margin-bottom: 0px;
       `}>
-            <div>
                 <h3>{welcomeTitle}</h3>
             </div>
-            <input  value={inputText}  onChange={(event) => {    setInputText(event.target.value);  }}/>
-            <button variant='primary' onClick={()=>{NameSetup(inputText)}}><h4>Save Username</h4></button>
-            
+            <div css={css`
+        width: 100%;
+        background-color: lightblue;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+      `}>
+                <input  value={inputText}  onChange={(event) => {    setInputText(event.target.value);  }}/> 
+            </div>
+            <div css={css`
+                width: 100%;
+                background-color: lightblue;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin-top: 0px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            `}> 
+                <button variant='primary' onClick={()=>{NameSetup(inputText)}}><h4>Save Username</h4></button>    
+            </div>
         </div>
     );
 }
