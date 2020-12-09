@@ -32,6 +32,7 @@ const [inputText, setInputText]= useState();
             </div>
             <input  value={inputText}  onChange={(event) => {    setInputText(event.target.value);  }}/>
             <button variant='primary' onClick={()=>{NameSetup(inputText)}}><h4>Save Username</h4></button>
+            
         </div>
     );
 }

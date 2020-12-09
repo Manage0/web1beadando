@@ -4,7 +4,9 @@ import SavedCatThings from './Routes/SavedCatThings';
 import CatPic from './Routes/Catpic';
 import NameEnter from './NameEnter';
 import Header from './Header'
-import {Route, Redirect, Link} from 'react-router-dom'
+import AuthorNfo from "./Author"
+import CatPurr from "./CatPurr"
+import {Route, Redirect} from 'react-router-dom'
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
       <Route path="/saved" component={SavedCatThings}></Route>
       <Route path="/catpic" component={CatPic}></Route>
       <Redirect path="*" to="/catfacts" />
-      <a href="https://github.com/Manage0/web1beadando">Source Code available here</a>
+      <CatPurr/>
+      <AuthorNfo/>
     </div>
   );
 }
