@@ -27,7 +27,7 @@ const RandomCatThings =()=>{
         }
       }, [])
       if (!loaded) {
-        return("You will see the facts here!")
+        return(<h5>You will see the facts here!</h5>)
       }
 
       const Save=()=>{
@@ -54,9 +54,10 @@ const RandomCatThings =()=>{
             <br/>
             {(index+4)+". "+JSON.stringify(facts.all[index+3].text)}
             <br/>
-            <button variant='primary' onClick={()=>{index>=4?setIndex(index-4):setIndex(index)}}>{index>=4?"Previous "+(index-3)+"-"+(index):"No previous available"}</button>
+            <button variant='primary' onClick={()=>{index>=4?setIndex(index-4):setIndex(index)}}>
+    {index>=4?<h4>Previous {index-3}-{index}</h4>:<h4>No previous available</h4>}</button>
             {/*handle negative nums and html danger text*/}
-            <button variant='primary' onClick={()=>{setIndex(index+4)}}>Next {index+5}-{index+8}</button>
+            <button variant='primary' onClick={()=>{setIndex(index+4)}}><h4>Next {index+5}-{index+8}</h4></button>
             <br/>
             <div
             css={css`
@@ -68,8 +69,8 @@ const RandomCatThings =()=>{
             margin-top: 0px;
             background-color: green;
           `}>
-            <button variant='primary' onClick={()=>{EnableSelection()}}>Select items to save</button>
-            <button variant='primary' onClick={()=>{Save()}}>Save Selected items</button>
+            <button variant='primary' onClick={()=>{EnableSelection()}}><h4>Select items to save</h4></button>
+            <button variant='primary' onClick={()=>{Save()}}><h4>Save Selected items</h4></button>
             </div>
         </div>
     );

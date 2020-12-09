@@ -8,20 +8,15 @@ const Header= ()=>{
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         margin-top: 0px;
         background-color: green;
       `}
     >
-        <ul>
-        <li>
-        <Link to='/'>Random cat things</Link>    
-        </li>
-        <li>
-        <Link to='/saved'>Saved cat things</Link>
-        </li>
-        </ul>
+        <h1>Menu</h1>
+        <Link to='/'><h2>Cat facts</h2></Link>    
+        <Link to='/saved'><h2>Saved cat facts</h2></Link>
     </div>
     )
 }

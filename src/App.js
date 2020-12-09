@@ -13,6 +13,7 @@ function App() {
       <NameEnter/>
       <Route exact path="/" component={RandomCatThings}></Route>
       <Route path="/saved" component={SavedCatThings}></Route>
+      <Route path="/catpic" component={SavedCatThings}></Route>
     </div>
   );
 }

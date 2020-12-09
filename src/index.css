@@ -5,6 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #3EA77B;
+}
+
+h1 {
+  color: #84DFA5;
+  text-align: left;
+}
+
+div {
+  font-family: verdana;
+  font-size: 20px;
 }
 
 code {
