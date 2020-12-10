@@ -1,5 +1,6 @@
 import {useState} from "react"
 import { css } from "styled-components/macro"
+import "./Button.css"
 
 const NameEnter =()=>{
 
@@ -51,7 +52,7 @@ const [inputText, setInputText]= useState();
                 padding-top: 5px;
                 padding-bottom: 5px;
             `}> 
-                <button variant='primary' onClick={()=>{NameSetup(inputText)}}><h4>Save Username</h4></button>    
+                <button variant='primary' className="button" onClick={()=>{NameSetup(inputText)}}><h4>Save Username</h4></button>    
             </div>
         </div>
     );
