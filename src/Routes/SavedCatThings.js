@@ -15,7 +15,7 @@ const [state, dispatch] = useReducer(usernameReducer, username);
             <br/>
             {state.username}
             <ul>
-            {JSON.parse(localStorage.getItem("karesz")).map((item)=>
+            {JSON.parse(localStorage.getItem(username)).map((item)=>
         <li>
             {item}
         </li>

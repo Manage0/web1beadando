@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { useState,useEffect } from 'react'
-import "../catpurr.css"
+import { useState,useEffect,useContext } from 'react'
 import "../Css/Button.css"
 import { UserNameContext } from "../UsernameContext"
 
@@ -10,13 +9,14 @@ const RandomCatThings =()=>{
     const [facts, setFacts]=useState();
     const [loaded, setLoaded]=useState(false);
     const [index, setIndex]=useState(0);
-    
+    const { username } = useContext(UserNameContext)
    
     useEffect(() => {
         const load = async () => {
           try {
             const resp = await axios(
-              "https://cat-fact.herokuapp.com/facts"
+              "https://jsonplaceholder.typicode.com/todos/"
+              //original API: https://cat-fact.herokuapp.com/facts
             )
             setFacts(resp.data)
             setLoaded(true)
@@ -38,52 +38,52 @@ const RandomCatThings =()=>{
         if(selectedFacts[index]||selectedFacts[index+1]||selectedFacts[index+2]||selectedFacts[index+3]) {
           if(selectedFacts[index]){
             localStorage.setItem(
-              'karesz',
-              localStorage.getItem('karesz')?
+              username,
+              localStorage.getItem(username)?
               JSON.stringify(
               [
-                ...JSON.parse(localStorage.getItem('karesz')),
-                facts.all[index].text
+                ...JSON.parse(localStorage.getItem(username)),
+                facts[index].title
               ])
-              :JSON.stringify([facts.all[index].text]));
+              :JSON.stringify([facts[index].title]));
           }
           if(selectedFacts[index+1]){
             if(selectedFacts[index+1]){
               localStorage.setItem(
-                'karesz',
-                localStorage.getItem('karesz')?
+                username,
+                localStorage.getItem(username)?
                 JSON.stringify(
                 [
-                  ...JSON.parse(localStorage.getItem('karesz')),
-                  facts.all[index+1].text
+                  ...JSON.parse(localStorage.getItem(username)),
+                  facts[index+1].title
                 ])
-                :JSON.stringify([facts.all[index+1].text]))
+                :JSON.stringify([facts[index+1].title]))
           }
         }
           if(selectedFacts[index+2]){
             if(selectedFacts[index+2]){
               localStorage.setItem(
-                'karesz',
-                localStorage.getItem('karesz')?
+                username,
+                localStorage.getItem(username)?
                 JSON.stringify(
                 [
-                  ...JSON.parse(localStorage.getItem('karesz')),
-                  facts.all[index+2].text
+                  ...JSON.parse(localStorage.getItem(username)),
+                  facts[index+2].title
                 ])
-                :JSON.stringify([facts.all[index+2].text]))
+                :JSON.stringify([facts[index+2].title]))
           }
         }
           if(selectedFacts[index+3]){
             if(selectedFacts[index+3]){
               localStorage.setItem(
-                'karesz',
-                localStorage.getItem('karesz')?
+                username,
+                localStorage.getItem(username)?
                 JSON.stringify(
                 [
-                  ...JSON.parse(localStorage.getItem('karesz')),
-                  facts.all[index+3].text
+                  ...JSON.parse(localStorage.getItem(username)),
+                  facts[index+3].title
                 ])
-                :JSON.stringify([facts.all[index+3].text]))
+                :JSON.stringify([facts[index+3].title]))
           }
         }
       }
@@ -94,17 +94,19 @@ const RandomCatThings =()=>{
 
     return (
         <div className="styleddiv">
+            These aren't cat facts, because the API crashed :( 
+            <br/>
             <input type="checkbox" onClick={()=>{selectedFacts[index]?selectedFacts[index]=false:selectedFacts[index]=true}}/>
-            {(index+1)+". "+JSON.stringify(facts.all[index].text)}
+            {(index+1)+". "+JSON.stringify(facts[index].title)}
             <br/>
-            <input type="checkbox" onClick={()=>{selectedFacts[index]?selectedFacts[index+1]=false:selectedFacts[index+1]=true}}/>
-            {(index+2)+". "+JSON.stringify(facts.all[index+1].text)}
+            <input type="checkbox" onClick={()=>{selectedFacts[index+1]?selectedFacts[index+1]=false:selectedFacts[index+1]=true}}/>
+            {(index+2)+". "+JSON.stringify(facts[index+1].title)}
             <br/>
-            <input type="checkbox" onClick={()=>{selectedFacts[index]?selectedFacts[index+2]=false:selectedFacts[index+2]=true}}/>
-            {(index+3)+". "+JSON.stringify(facts.all[index+2].text)}
+            <input type="checkbox" onClick={()=>{selectedFacts[index+2]?selectedFacts[index+2]=false:selectedFacts[index+2]=true}}/>
+            {(index+3)+". "+JSON.stringify(facts[index+2].title)}
             <br/>
-            <input type="checkbox" onClick={()=>{selectedFacts[index]?selectedFacts[index+3]=false:selectedFacts[index+3]=true}}/>
-            {(index+4)+". "+JSON.stringify(facts.all[index+3].text)}
+            <input type="checkbox" onClick={()=>{selectedFacts[index+3]?selectedFacts[index+3]=false:selectedFacts[index+3]=true}}/>
+            {(index+4)+". "+JSON.stringify(facts[index+3].title)}
             <br/>
             <div className="styleddiv">
             <button variant='primary' className="button" onClick={()=>{index>=4?setIndex(index-4):setIndex(index)}}>

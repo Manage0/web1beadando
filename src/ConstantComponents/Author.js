@@ -11,14 +11,14 @@ const AuthorNfo=()=>{
                     <br/>
                     Made by Benedek Jakab
                     <br/>
-                    University of Sopron - Simonyi Karoly Faculty of Engineering, Wood Sciences and Applied Arts"
+                    University of Sopron - Simonyi Karoly Faculty of Engineering, Wood Sciences and Applied Arts
                     <br/>
                     <a href="https://github.com/Manage0/web1beadando" >
                         <h1>
                             Source Code available here
                         </h1>
                     </a>
-            </div>
+                </div>
             );
         }
         return null
@@ -26,10 +26,12 @@ const AuthorNfo=()=>{
 
     return(
         <div>
-        <button variant="primary" className="button" onClick={()=>setShow(!show)} >
-        <h4>Show developer</h4>
-        </button>
-        {Show()}
+            <button variant="primary" className="button" onClick={()=>setShow(!show)} >
+                <h4>
+                    Show developer
+                </h4>
+            </button>
+            {Show()}
         </div>)
 }
 

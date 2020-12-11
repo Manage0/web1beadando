@@ -4,18 +4,14 @@ import "./Css/Button.css"
 import { UserNameContext } from "./UsernameContext"
 
 const NameEnter = () => {
-    const { usernameModifier, username } = useContext(UserNameContext)
+    const { ChangeUsername, username } = useContext(UserNameContext)
     const [welcomeTitle, setWelcomeTitle] = useState(`Welcome, please enter your name!`);
-    const NameSetup = (name) => {
-        usernameModifier(name)
-    }
-
-    useEffect(() =>{
-        if (username !== undefined)
-        setWelcomeTitle(`Welcome, ${username}!`)
-    }, [username])
-
     const [inputText, setInputText] = useState();
+
+    useEffect(() => {
+        if (username)
+            setWelcomeTitle(`Welcome, ${username}!`)
+    }, [username])
 
     return (
         <div>
@@ -53,7 +49,7 @@ const NameEnter = () => {
                 padding-top: 5px;
                 padding-bottom: 5px;
             `}>
-                <button variant='primary' className="button" onClick={() => { NameSetup(inputText) }}><h4>Save Username</h4></button>
+                <button variant='primary' className="button" onClick={() => { ChangeUsername(inputText) }}><h4>Save Username</h4></button>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ export const UserNameContext = createContext();
 export const UsernameProvider = (props) => {
     const [username, setUsername]=useState();
 
-    const usernameModifier=(name)=>{
+    const ChangeUsername=(name)=>{
         setUsername(name)
     }
 
@@ -13,6 +13,6 @@ export const UsernameProvider = (props) => {
         }, []);
 
     return(
-        <UserNameContext.Provider value={{usernameModifier, username}} {...props}/>
+        <UserNameContext.Provider value={{ChangeUsername, username}} {...props}/>
     );
 }
