@@ -1,14 +1,10 @@
-import { useState } from "react";
-
 const CatPic =()=>{
 
-    const [loaded,setLoaded]=useState(false)
-    
-    if(!loaded)
-    return (
-    <div>
-        <b>Pics of cats will be here!</b>
-    </div>   
-    );}
+    return(
+        <div>
+            <img src="https://cataas.com/c" width="500" height="600" loading="lazy"></img>
+        </div>
+    );
+}
 
 export default CatPic;

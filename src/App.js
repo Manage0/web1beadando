@@ -8,6 +8,7 @@ import AuthorNfo from "./Author"
 import CatPurr from "./CatPurr"
 import {Route, Redirect} from 'react-router-dom'
 import {useEffect} from 'react'
+import {UsernameProvider} from './UsernameContext'
 //<TitleSetter/>
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
   return (
     //global állapot => username
     <div className="App">
+      <UsernameProvider>
       <Header/>
       <NameEnter/>
       <Route exact path="/catfacts" component={RandomCatThings}></Route>
@@ -26,6 +28,8 @@ function App() {
       <Redirect path="*" to="/catfacts" />
       <CatPurr/>
       <AuthorNfo/>
+      </UsernameProvider>
+      
     </div>
   );
 }

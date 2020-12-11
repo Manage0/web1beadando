@@ -1,20 +1,21 @@
-import {useState} from "react"
+import { useContext, useEffect, useState } from "react"
 import { css } from "styled-components/macro"
 import "./Button.css"
+import { UserNameContext } from "./UsernameContext"
 
-const NameEnter =()=>{
+const NameEnter = () => {
+    const { usernameModifier, username } = useContext(UserNameContext)
+    const [welcomeTitle, setWelcomeTitle] = useState(`Welcome, please enter your name!`);
+    const NameSetup = (name) => {
+        usernameModifier(name)
+    }
 
-const [welcomeTitle, setWelcomeTitle] = useState(`Welcome, please enter your name!`);
-//const [userName, setUserName] =useState();
+    useEffect(() =>{
+        if (username !== undefined)
+        setWelcomeTitle(`Welcome, ${username}!`)
+    }, [username])
 
-const NameSetup=(name)=>{
-    //setUserName(name);
-    //contextbe mentés
-    if(name!==undefined)
-    setWelcomeTitle(`Welcome, ${name}!`)
-}
-
-const [inputText, setInputText]= useState();
+    const [inputText, setInputText] = useState();
 
     return (
         <div>
@@ -39,7 +40,7 @@ const [inputText, setInputText]= useState();
         justify-content: center;
         margin-top: 0px;
       `}>
-                <input  value={inputText}  onChange={(event) => {    setInputText(event.target.value);  }}/> 
+                <input value={inputText} onChange={(event) => { setInputText(event.target.value); }} />
             </div>
             <div css={css`
                 width: 100%;
@@ -51,8 +52,8 @@ const [inputText, setInputText]= useState();
                 margin-top: 0px;
                 padding-top: 5px;
                 padding-bottom: 5px;
-            `}> 
-                <button variant='primary' className="button" onClick={()=>{NameSetup(inputText)}}><h4>Save Username</h4></button>    
+            `}>
+                <button variant='primary' className="button" onClick={() => { NameSetup(inputText) }}><h4>Save Username</h4></button>
             </div>
         </div>
     );
