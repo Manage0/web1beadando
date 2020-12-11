@@ -4,7 +4,7 @@ import SavedCatThings from './Routes/SavedCatThings';
 import CatPic from './Routes/Catpic';
 import NameEnter from './NameEnter';
 import Header from './Header'
-import AuthorNfo from "./Author"
+import AuthorNfo from "./ConstantComponents/Author"
 import CatPurr from "./CatPurr"
 import {Route, Redirect} from 'react-router-dom'
 import {useEffect} from 'react'

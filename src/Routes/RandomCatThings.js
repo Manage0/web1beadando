@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useState,useEffect } from 'react'
 import "../catpurr.css"
-import "../Button.css"
+import "../Css/Button.css"
+import { UserNameContext } from "../UsernameContext"
 
 const RandomCatThings =()=>{
 
@@ -9,6 +10,7 @@ const RandomCatThings =()=>{
     const [facts, setFacts]=useState();
     const [loaded, setLoaded]=useState(false);
     const [index, setIndex]=useState(0);
+    
    
     useEffect(() => {
         const load = async () => {
@@ -46,15 +48,45 @@ const RandomCatThings =()=>{
               :JSON.stringify([facts.all[index].text]));
           }
           if(selectedFacts[index+1]){
-            
-          }
-          if(selectedFacts[index]+2){
-            
-          }
-          if(selectedFacts[index]+3){
-            
+            if(selectedFacts[index+1]){
+              localStorage.setItem(
+                'karesz',
+                localStorage.getItem('karesz')?
+                JSON.stringify(
+                [
+                  ...JSON.parse(localStorage.getItem('karesz')),
+                  facts.all[index+1].text
+                ])
+                :JSON.stringify([facts.all[index+1].text]))
           }
         }
+          if(selectedFacts[index+2]){
+            if(selectedFacts[index+2]){
+              localStorage.setItem(
+                'karesz',
+                localStorage.getItem('karesz')?
+                JSON.stringify(
+                [
+                  ...JSON.parse(localStorage.getItem('karesz')),
+                  facts.all[index+2].text
+                ])
+                :JSON.stringify([facts.all[index+2].text]))
+          }
+        }
+          if(selectedFacts[index+3]){
+            if(selectedFacts[index+3]){
+              localStorage.setItem(
+                'karesz',
+                localStorage.getItem('karesz')?
+                JSON.stringify(
+                [
+                  ...JSON.parse(localStorage.getItem('karesz')),
+                  facts.all[index+3].text
+                ])
+                :JSON.stringify([facts.all[index+3].text]))
+          }
+        }
+      }
         else{
             alert("No items selected!");
         }
@@ -86,6 +118,6 @@ const RandomCatThings =()=>{
             </div>
         </div>
     );
-}
+    }
 
 export default RandomCatThings
