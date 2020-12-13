@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { css } from "styled-components/macro"
-import "./Css/Button.css"
-import { UserNameContext } from "./UsernameContext"
+import "../Css/Button.css"
+import { UserNameContext } from "../Contexts_Reducers/UsernameContext"
 
 const NameEnter = () => {
     const { ChangeUsername, username } = useContext(UserNameContext)

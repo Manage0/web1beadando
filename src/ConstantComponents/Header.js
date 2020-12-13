@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom'
 import { css } from "styled-components/macro"
+import { useContext, useState, useEffect } from "react"
+import { UserNameContext } from "../Contexts_Reducers/UsernameContext"
 
 const Header = () => {
+    const { username } = useContext(UserNameContext)
+    const [SavedLink, setSavedLink] = useState("/catfacts");
+
+    useEffect(() => {
+        if (username) {
+            setSavedLink("/saved")
+        }
+    }, [username])
 
     return (
         <div
@@ -23,7 +33,7 @@ const Header = () => {
                     Cat facts
                 </h2>
             </Link>
-            <Link to='/saved' style={{ textDecoration: 'none' }}>
+            <Link to={SavedLink} onClick={()=> username?{}:alert("No username set!")} style={{ textDecoration: 'none' }}>
                 <h2>
                     Saved cat facts
                 </h2>

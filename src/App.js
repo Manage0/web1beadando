@@ -2,13 +2,13 @@ import './Css/App.css';
 import RandomCatThings from './Routes/RandomCatThings';
 import SavedCatThings from './Routes/SavedCatThings';
 import CatPic from './Routes/Catpic';
-import NameEnter from './NameEnter';
+import NameEnter from './ConstantComponents/NameEnter';
 import Header from './ConstantComponents/Header'
 import AuthorNfo from "./ConstantComponents/Author"
 import CatPurr from "./ConstantComponents/CatPurr"
 import { Route, Redirect } from 'react-router-dom'
 import { useEffect } from 'react'
-import { UsernameProvider } from './UsernameContext'
+import { UsernameProvider } from './Contexts_Reducers/UsernameContext'
 
 function App() {
 

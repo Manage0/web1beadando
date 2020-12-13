@@ -1,28 +1,32 @@
-import { UserNameContext } from "../UsernameContext"
-import {useReducer, useContext} from "react"
-import {usernameReducer} from "../usernameReducer"
+import { UserNameContext } from "../Contexts_Reducers/UsernameContext"
+import { useReducer, useContext} from "react"
+import { usernameReducer } from "../Contexts_Reducers/usernameReducer"
+import DataFromLocalStorage from "../Helpers/DataFromLocalStorage"
 
 
-const SavedCatThings =()=>{
+const SavedCatThings = () => {
+
+    const { username } = useContext(UserNameContext)
+    const UsernameObject={
+        username: username
+    }
+    const [state, dispatch] = useReducer(usernameReducer, UsernameObject);
     
-const { username } = useContext(UserNameContext)
-const [state, dispatch] = useReducer(usernameReducer, username);
     return (
         <div>
-            <button variant="primary" onClick={()=>dispatch({type: 'capitalize'})}>
+            <button variant="primary" onClick={() => dispatch({type: 'capitalize' })}>
                 Click here to see your name written with uppercase letters!
             </button>
-            <br/>
-            {state.username}
-            <ul>
-            {JSON.parse(localStorage.getItem(username)).map((item)=>
-        <li>
-            {item}
-        </li>
-    )}
-    </ul>
-    </div>
-    
-    );}
+            <button variant="primary" onClick={() => dispatch({type: 'delete' })}>
+                Click here to delete all your data!
+            </button>
+            <br />
+            Your Name: {state.username}
+            <br />
+            {localStorage.getItem(username) ? <DataFromLocalStorage /> : "You didn't save any facts yet :/"}
+        </div>
+
+    );
+}
 
 export default SavedCatThings
