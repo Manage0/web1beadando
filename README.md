@@ -1,5 +1,5 @@
 # README Ultimate Cat Site
-### It has a header where you can navigate between 3 sites.
+### It has a header where you can navigate between 3 sites, the logo and the "Ultimate Cat Site" label navigates you to the same as Random Cat Facts.
 ### Each site has different content:
 - Random cat facts contains cat facts
 - Saved Cat facts contains your saved cat fact (if you entered a username)
