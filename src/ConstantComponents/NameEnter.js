@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { css } from "styled-components/macro"
 import "../Css/Button.css"
+import "../Css/Input.css"
 import { UserNameContext } from "../Contexts_Reducers/UsernameContext"
 
 const NameEnter = () => {
@@ -19,37 +20,24 @@ const NameEnter = () => {
         width: 100%;
         background-color: lightblue;
         display: flex;
-        flex-direction: row;
+        justify-content: space-evenly;
+      `}>
+            <div css={css`
+        width: 40%;
+        display: flex;
         align-items: center;
-        justify-content: center;
-        margin-top: 0px;
-        margin-bottom: 0px;
+        justify-content: space-evenly;
       `}>
                 <h3>{welcomeTitle}</h3>
+                <input type="search" placeholder="Your name..." value={inputText} border="50px" onChange={(event) => { setInputText(event.target.value); }} />
+            </div> 
             </div>
             <div css={css`
         width: 100%;
         background-color: lightblue;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-top: 0px;
+        padding-bottom: 8px;
       `}>
-                <input value={inputText} onChange={(event) => { setInputText(event.target.value); }} />
-            </div>
-            <div css={css`
-                width: 100%;
-                background-color: lightblue;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                margin-top: 0px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-            `}>
-                <button variant='primary' className="button" onClick={() => { ChangeUsername(inputText) }}><h4>Save Username</h4></button>
+            <button variant='primary' className="button" onClick={() => { ChangeUsername(inputText) }}><h4>Save Username</h4></button>    
             </div>
         </div>
     );

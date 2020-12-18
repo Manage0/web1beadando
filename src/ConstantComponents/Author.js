@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../Css/Button.css"
+import "../Css/ArrowedBtn.css"
 
 const AuthorNfo=()=>{
     const [show,setShow]=useState(false);
@@ -26,9 +26,11 @@ const AuthorNfo=()=>{
 
     return(
         <div>
-            <button variant="primary" className="button" onClick={()=>setShow(!show)} >
+            <button variant="secondary" className="aButton" onClick={()=>setShow(!show)} >
                 <h4>
-                    Show developer
+                    <span>
+                        Show developer
+                    </span>
                 </h4>
             </button>
             {Show()}
