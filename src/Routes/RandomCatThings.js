@@ -23,12 +23,10 @@ const RandomCatThings = () => {
       } catch (err) {
         console.log(err)
       }
-      try {
-        //const resp = 
+      try { 
         await axios(
           "https://cat-fact.herokuapp.com/facts"
         )
-        //setFacts(resp.data)
         setAPIisBack(true)
       } catch (err) {
         console.log(err)

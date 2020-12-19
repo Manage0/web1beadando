@@ -29,7 +29,7 @@ const NameEnter = () => {
         justify-content: space-evenly;
       `}>
                 <h3>{welcomeTitle}</h3>
-                <input type="search" placeholder="Your name..." value={inputText} border="50px" onChange={(event) => { setInputText(event.target.value); }} />
+                <input type="text" placeholder="Your name..." value={inputText} border="50px" onChange={(event) => { setInputText(event.target.value); }} />
             </div> 
             </div>
             <div css={css`
