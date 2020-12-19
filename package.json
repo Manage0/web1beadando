@@ -1,8 +1,8 @@
 {
-  "homepage": "http://Manage0.github.io/catfacts",
+  "homepage": "http://manage0.github.io/catfacts",
   "name": "web1bead",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
